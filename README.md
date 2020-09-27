@@ -1,4 +1,4 @@
-<p  align="center"><img  src="https://github.com/zacksmash/fortify-ui/blob/master/fortifu-ui-image.png"  width="400"></p>
+<p  align="center"><img  src="https://github.com/zacksmash/fortify-ui/blob/master/fortify-ui-image.png"  width="400"></p>
 
 # Introduction
 
