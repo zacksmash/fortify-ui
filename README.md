@@ -13,7 +13,7 @@ FortifyUI is an unopinionated authentication starter, powered by [Laravel Fortif
 To get started, you'll need to install [Laravel Fortify](https://github.com/laravel/fortify) and follow the instructions to configure it. Next, install FortifyUI using Composer:
 
 ```bash
-composer require zacksmash/fortify-ui laravel/fortify
+composer require zacksmash/fortify-ui
 ```
 
 Next, publish FortifyUI's resources:
