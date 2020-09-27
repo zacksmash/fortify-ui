@@ -10,32 +10,24 @@ FortifyUI is an unopinionated authentication starter, powered by [Laravel Fortif
 <a name="installation"></a>
 ## Installation
 
-To get started, you'll need to install [Laravel Fortify](https://github.com/laravel/fortify) and follow the instructions to configure it. Next, install FortifyUI using Composer:
+To get started, you'll need to install FortifyUI using Composer. This will install Laravel Fortify, as well so, please make sure you *do not* have it installed, already.
 
 ```bash
 composer require zacksmash/fortify-ui
 ```
 
-Next, publish FortifyUI's resources:
+Next, you'll need to run the install command:
 
 ```bash
-php artisan vendor:publish --provider="Zacksmash\FortifyUI\FortifyUIServiceProvider"
+php artisan fortify-ui:install
 ```
 
-This command will publish FortifyUI's service provider to your `app/Providers` directory. You should ensure this file is registered within the `providers` array of your `app` configuration file.
+This command will publish FortifyUI's views, add the `home` route to `web.php`, and add the FortifyUI service provider to your `app/Providers` directory.
 
-```php
-'providers' => [
-    ...
-    App\Providers\FortifyServiceProvider::class,
-    App\Providers\FortifyUIServiceProvider::class,
-],
-```
-
-If you'd rather not include the service provider file, you can publish just the required views to your project.
+If you'd rather not include the service provider file, you can skip the providers file by using the `--skip-provider` flag.
 
 ```bash
-php artisan vendor:publish --provider="Zacksmash\FortifyUI\FortifyUIServiceProvider" --tag=views
+php artisan fortify-ui:install --skip-provider
 ```
 
 Then, you can add this to Your `AppServiceProvider` or `FortifyServiceProvider`, in the `boot()` method.
@@ -67,14 +59,6 @@ Fortify::resetPasswordView(function ($request) {
 ```
 
 Now, you should have the required views for Laravel Fortify, including basic layout and home views, as well as optional password confirmation and email verification views.
-
-Lastly, you should run the `fortify-ui` command from the terminal:
-
-```bash
-php artisan fortify-ui
-```
-
-This will update your routes file with the `home` route.
 
 <a name="features"></a>
 ## Features
