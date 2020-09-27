@@ -18,6 +18,6 @@ class FortifyUICommand extends Command
             FILE_APPEND
         );
 
-        $this->comment('All done');
+        $this->comment('FortifyUI is now setup!');
     }
 }
