@@ -17,7 +17,8 @@
     ],
     "require": {
         "php": "^7.4",
-        "illuminate/contracts": "^8.0"
+        "illuminate/contracts": "^8.0",
+        "laravel/fortify": "^1.5"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
@@ -27,8 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Zacksmash\\FortifyUI\\": "src",
-            "Zacksmash\\FortifyUI\\Database\\Factories\\": "database/factories"
+            "Zacksmash\\FortifyUI\\": "src"
         }
     },
     "autoload-dev": {
@@ -49,10 +49,7 @@
         "laravel": {
             "providers": [
                 "Zacksmash\\FortifyUI\\FortifyUIServiceProvider"
-            ],
-            "aliases": {
-                "FortifyUI": "Zacksmash\\FortifyUI\\FortifyUIFacade"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
