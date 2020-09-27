@@ -32,7 +32,41 @@ This command will publish FortifyUI's service provider to your `app/Providers` d
 ],
 ```
 
-This will also publish the required views for Laravel Fortify view registration, including a basic home view, as well as optional password confirmation and email verification views.
+If you'd rather not include the service provider file, you can publish just the required views to your project.
+
+```bash
+php artisan vendor:publish --provider="Zacksmash\FortifyUI\FortifyUIServiceProvider" --tag=views
+```
+
+Then, you can add this to Your `AppServiceProvider` or `FortifyServiceProvider`, in the `boot()` method.
+
+```php
+Fortify::loginView(function () {
+    return view('auth.login');
+});
+
+Fortify::registerView(function () {
+    return view('auth.register');
+});
+
+Fortify::requestPasswordResetLinkView(function () {
+    return view('auth.forgot-password');
+});
+
+Fortify::resetPasswordView(function ($request) {
+    return view('auth.reset-password', ['request' => $request]);
+});
+
+// Fortify::verifyEmailView(function () {
+//     return view('auth.verify');
+// });
+
+// Fortify::confirmPasswordView(function () {
+//     return view('auth.password-confirm');
+// });
+```
+
+Now, you should have the required views for Laravel Fortify, including basic layout and home views, as well as optional password confirmation and email verification views.
 
 Lastly, you should run the `fortify-ui` command from the terminal:
 
