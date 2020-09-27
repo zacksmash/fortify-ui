@@ -1,0 +1,34 @@
+@extends('layouts.app')
+
+@section('content')
+    @if ($errors->any())
+        <div>
+            <div>{{ __('Whoops! Something went wrong.') }}</div>
+
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form method="POST" action="{{ route('password.update') }}">
+        @csrf
+
+        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+
+        <label>{{ __('Email') }}</label>
+        <input type="email" name="email" value="{{ old('email', $request->email) }}" required autofocus />
+
+        <label>{{ __('Password') }}</label>
+        <input type="password" name="password" required autocomplete="new-password" />
+
+        <label>{{ __('Confirm Password') }}</label>
+        <input type="password" name="password_confirmation" required autocomplete="new-password" />
+
+        <button type="submit">
+            {{ __('Reset Password') }}
+        </button>
+    </form>
+@endsection

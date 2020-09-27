@@ -1,80 +1,58 @@
-# :package_description
+<p  align="center"><img  src="https://github.com/zacksmsh/fortify-ui/blob/master/fortifu-ui-image.png"  width="400"></p>
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_name/:package_name.svg?style=flat-square)](https://packagist.org/packages/:vendor_name/:package_name)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/:vendor_name/:package_name/run-tests?label=tests)](https://github.com/:vendor_name/:package_name/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_name/:package_name.svg?style=flat-square)](https://packagist.org/packages/:vendor_name/:package_name)
+# Introduction
 
-**Note:** Run `./configure-skeleton` to get started, or manually replace  ```:author_name``` ```:author_username``` ```:author_email``` ```:vendor_name``` ```:package_name``` ```:package_description``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](.github/CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can also run `configure-skeleton.sh` to do this automatically.
+FortifyUI is an unopinionated authentication starter, powered by [Laravel Fortify](https://github.com/laravel/fortify). This package can be used to start your project, or it can be forked to integrate your favorite frontend framework. It is completely unstyled on purpose and only includes a minimal amount of markup to get your project running quickly.
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+- [Installation](#installation)
+- [Features](#features)
 
-## Support us
-
-Learn how to create a package like this one, by watching our premium video course:
-
-[![Laravel Package training](https://spatie.be/github/package-training.jpg)](https://laravelpackage.training)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
-
+<a name="installation"></a>
 ## Installation
 
-You can install the package via composer:
+To get started, you'll need to install [Laravel Fortify](https://github.com/laravel/fortify) and follow the instructions to configure it. Next, install FortifyUI using Composer:
 
 ```bash
-composer require :vendor_name/:package_name
+composer require zacksmash/fortify-ui laravel/fortify
 ```
 
-You can publish and run the migrations with:
+Next, publish FortifyUI's resources:
 
 ```bash
-php artisan vendor:publish --provider="Spatie\Skeleton\SkeletonServiceProvider" --tag="migrations"
-php artisan migrate
+php artisan vendor:publish --provider="Zacksmash\FortifyUI\FortifyUIServiceProvider"
 ```
 
-You can publish the config file with:
-```bash
-php artisan vendor:publish --provider="Spatie\Skeleton\SkeletonServiceProvider" --tag="config"
-```
-
-This is the contents of the published config file:
+This command will publish FortifyUI's service provider to your `app/Providers` directory. You should ensure this file is registered within the `providers` array of your `app` configuration file.
 
 ```php
-return [
-];
+'providers' => [
+    ...
+    App\Providers\FortifyServiceProvider::class,
+    App\Providers\FortifyUIServiceProvider::class,
+],
 ```
 
-## Usage
+This will also publish the required views for Laravel Fortify view registration, including a basic home view, as well as optional password confirmation and email verification views.
 
-``` php
-$skeleton = new Spatie\Skeleton();
-echo $skeleton->echoPhrase('Hello, Spatie!');
+Lastly, you should run the `fortify-ui` command from the terminal:
+
+```bash
+php artisan fortify-ui
 ```
 
-## Testing
+This will update your routes file with the `home` route.
 
-``` bash
-composer test
-```
+<a name="features"></a>
+## Features
 
-## Changelog
+By default, FortifyUI is setup to handle the basic authentication functions (Login, Register, Password Reset) provided by Laravel Fortify.
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+### Email Verification
+To enable the email verification feature, you'll need to visit the `FortifyUIServiceProvider` and uncomment the `Fortify::verifyEmailView()` feature. Next, you'll need to follow the instructions from [Laravel Fortify's](https://github.com/laravel/fortify/blob/1.x/README.md#email-verification) documentation to update your `User` model and the `fortify.php` config file. This allows you to attach the `verified` middleware to any of your routes, which is handled by the `verify.blade.php` file.
 
-## Contributing
-
-Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-## Credits
-
-- [:author_name](https://github.com/:author_username)
-- [All Contributors](../../contributors)
+### Password Confirmation
+To enable the password confirmation feature, you'll need to visit the `FortifyUIServiceProvider` and uncomment the `Fortify::confirmPasswordView()` feature. This allows you to attach the `password.confirm` middleware to any of your routes, which is handled by the `password-confirm.blade.php` file.
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+FortifyUI is open-sourced software licensed under the [MIT license](LICENSE.md).

@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "zacksmash/fortify-ui",
+    "description": "Fortify-driven Laravel UI replacement",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "zacksmash",
+        "fortify-ui"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/zacksmash/fortify-ui",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": "https://spatie.be",
+            "name": "Zack Warren",
+            "email": "zachary.warren@me.com",
+            "homepage": "https://zacksmash.github.io",
             "role": "Developer"
         }
     ],
@@ -27,13 +27,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src",
-            "Spatie\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Zacksmash\\FortifyUI\\": "src",
+            "Zacksmash\\FortifyUI\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Zacksmash\\FortifyUI\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -48,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "Zacksmash\\FortifyUI\\FortifyUIServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "FortifyUI": "Zacksmash\\FortifyUI\\FortifyUIFacade"
             }
         }
     },

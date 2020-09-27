@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Zacksmash\FortifyUI\Tests;
 
 class ExampleTest extends TestCase
 {
