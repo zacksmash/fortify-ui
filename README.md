@@ -50,15 +50,21 @@ Fortify::resetPasswordView(function ($request) {
 });
 
 // Fortify::verifyEmailView(function () {
-//     return view('auth.verify');
+//     return view('auth.verify-email');
 // });
 
 // Fortify::confirmPasswordView(function () {
-//     return view('auth.password-confirm');
+//     return view('auth.confirm-password');
 // });
 ```
 
-Now, you should have all of the views required by *Laravel Fortify*, including basic layout and home views, as well as optional password confirmation and email verification views.
+To register all view, at once you can use this line:
+
+```php
+Fortify::viewPrefix('auth.');
+```
+
+Now, you should have all of the registered routes and views required by *Laravel Fortify*, including basic layout and home views, as well as optional password confirmation and email verification views.
 
 <a name="features"></a>
 ## Features

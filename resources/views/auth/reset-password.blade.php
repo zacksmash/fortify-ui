@@ -18,17 +18,25 @@
 
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-        <label>{{ __('Email') }}</label>
-        <input type="email" name="email" value="{{ old('email', $request->email) }}" required autofocus />
+        <div>
+        	<label>{{ __('Email') }}</label>
+        	<input type="email" name="email" value="{{ old('email', $request->email) }}" required autofocus />
+        </div>
 
-        <label>{{ __('Password') }}</label>
-        <input type="password" name="password" required autocomplete="new-password" />
+        <div>
+            <label>{{ __('Password') }}</label>
+            <input type="password" name="password" required autocomplete="new-password" />
+        </div>
 
-        <label>{{ __('Confirm Password') }}</label>
-        <input type="password" name="password_confirmation" required autocomplete="new-password" />
+        <div>
+            <label>{{ __('Confirm Password') }}</label>
+            <input type="password" name="password_confirmation" required autocomplete="new-password" />
+        </div>
 
-        <button type="submit">
-            {{ __('Reset Password') }}
-        </button>
+        <div>
+            <button type="submit">
+                {{ __('Reset Password') }}
+            </button>
+        </div>
     </form>
 @endsection
