@@ -22,14 +22,20 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <label>{{ __('Email') }}</label>
-        <input type="email" name="email" value="{{ old('email') }}" required autofocus />
+        <div>
+            <label>{{ __('Email') }}</label>
+            <input type="email" name="email" value="{{ old('email') }}" required autofocus />
+        </div>
 
-        <label>{{ __('Password') }}</label>
-        <input type="password" name="password" required autocomplete="current-password" />
+        <div>
+            <label>{{ __('Password') }}</label>
+            <input type="password" name="password" required autocomplete="current-password" />
+        </div>
 
-        <label>{{ __('Remember me') }}</label>
-        <input type="checkbox" name="remember">
+        <div>
+            <label>{{ __('Remember me') }}</label>
+            <input type="checkbox" name="remember">
+        </div>
 
         @if (Route::has('password.request'))
             <a href="{{ route('password.request') }}">
@@ -37,8 +43,10 @@
             </a>
         @endif
 
-        <button type="submit">
-           {{ __('Login') }}
-        </button>
+        <div>
+            <button type="submit">
+               {{ __('Login') }}
+            </button>
+        </div>
     </form>
 @endsection

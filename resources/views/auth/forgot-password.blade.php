@@ -26,11 +26,15 @@
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
 
-        <label>{{ __('Email') }}</label>
-        <input type="email" name="email" value="{{ old('email') }}" required autofocus />
+        <div>
+            <label>{{ __('Email') }}</label>
+            <input type="email" name="email" value="{{ old('email') }}" required autofocus />
+        </div>
 
-        <button type="submit">
-            {{ __('Email Password Reset Link') }}
-        </button>
+        <div>
+            <button type="submit">
+                {{ __('Email Password Reset Link') }}
+            </button>
+        </div>
     </form>
 @endsection

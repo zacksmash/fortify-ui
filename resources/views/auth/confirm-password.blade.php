@@ -16,12 +16,16 @@
     <form method="POST" action="{{ route('password.confirm') }}">
         @csrf
 
-        <label>{{ __('Password') }}</label>
-        <input type="password" name="password" required autocomplete="current-password" />
+        <div>
+            <label>{{ __('Password') }}</label>
+            <input type="password" name="password" required autocomplete="current-password" />
+        </div>
 
-        <button type="submit">
-            {{ __('Confirm Password') }}
-        </button>
+        <div>
+            <button type="submit">
+                {{ __('Confirm Password') }}
+            </button>
+        </div>
 
         @if (Route::has('password.request'))
             <a href="{{ route('password.request') }}">

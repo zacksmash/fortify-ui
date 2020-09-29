@@ -16,24 +16,34 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <label>{{ __('Name') }}</label>
-        <input type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name" />
+        <div>
+            <label>{{ __('Name') }}</label>
+            <input type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name" />
+        </div>
 
-        <label>{{ __('Email') }}</label>
-        <input type="email" name="email" value="{{ old('email') }}" required />
+        <div>
+            <label>{{ __('Email') }}</label>
+            <input type="email" name="email" value="{{ old('email') }}" required />
+        </div>
 
-        <label>{{ __('Password') }}</label>
-        <input type="password" name="password" required autocomplete="new-password" />
+        <div>
+            <label>{{ __('Password') }}</label>
+            <input type="password" name="password" required autocomplete="new-password" />
+        </div>
 
-        <label>{{ __('Confirm Password') }}</label>
-        <input type="password" name="password_confirmation" required autocomplete="new-password" />
+        <div>
+            <label>{{ __('Confirm Password') }}</label>
+            <input type="password" name="password_confirmation" required autocomplete="new-password" />
+        </div>
 
         <a href="{{ route('login') }}">
             {{ __('Already registered?') }}
         </a>
 
-        <button type="submit">
-            {{ __('Register') }}
-        </button>
+        <div>
+            <button type="submit">
+                {{ __('Register') }}
+            </button>
+        </div>
     </form>
 @endsection

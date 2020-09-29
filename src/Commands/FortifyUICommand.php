@@ -9,7 +9,7 @@ class FortifyUICommand extends Command
 {
     public $signature = 'fortify-ui:install {--skip-provider}';
 
-    public $description = 'Setup Fortify UI routes, service providers and views';
+    public $description = 'Setup FortifyUI routes, service providers and views';
 
     public function handle()
     {
