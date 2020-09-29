@@ -58,7 +58,7 @@ Fortify::resetPasswordView(function ($request) {
 // });
 ```
 
-To register all view, at once you can use this line:
+To register all views at once, you can use this instead:
 
 ```php
 Fortify::viewPrefix('auth.');
