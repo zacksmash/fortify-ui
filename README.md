@@ -81,7 +81,7 @@ To enable the password confirmation feature, you'll need to visit the **FortifyU
 <a name="presets"></a>
 ## FortifyUI Presets
 
-**FortifyUI** encourges you fork this repository and make your own presets, with your favorite frontend libraries and frameworks. To give you an idea of what that looks like, please take a look at [*FortifyUIkit*](https://github.com/zacksmash/fortify-ui).
+**FortifyUI** encourges you fork this repository and make your own presets, with your favorite frontend libraries and frameworks. To give you an idea of what that looks like, please take a look at [*FortifyUIkit*](https://github.com/zacksmash/fortify-uikit).
 
 ## License
 
