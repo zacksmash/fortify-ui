@@ -2,7 +2,7 @@
 
 # Introduction
 
-**FortifyUI** is an unopinionated authentication starter, powered by [*Laravel Fortify*](https://github.com/laravel/fortify). This package can be used to start your project, or it can be forked to integrate your favorite frontend framework. It is completely unstyled -- on purpose -- and only includes a minimal amount of markup to get your project running quickly.
+**FortifyUI** is an unopinionated authentication starter, powered by [*Laravel Fortify*](https://github.com/laravel/fortify). This package can be used to start your project, or you can use the [*FortifyUI Preset Template*](https://github.com/zacksmash/fortify-ui-preset) to create your own preset to install with **FortifyUI**. It is completely unstyled -- on purpose -- and only includes a minimal amount of markup to get your project running quickly.
 
 - [Installation](#installation)
 - [Features](#features)
@@ -81,7 +81,7 @@ To enable the password confirmation feature, you'll need to visit the **FortifyU
 <a name="presets"></a>
 ## FortifyUI Presets
 
-**FortifyUI** encourges you fork this repository and make your own presets, with your favorite frontend libraries and frameworks. To give you an idea of what that looks like, please take a look at [*FortifyUIkit*](https://github.com/zacksmash/fortify-uikit).
+**FortifyUI** encourges make your own presets, with your favorite frontend libraries and frameworks. To give you an idea of what that looks like, please take a look at [*FortifyUIkit*](https://github.com/zacksmash/fortify-uikit) and use the [*FortifyUI Preset Template*](https://github.com/zacksmash/fortify-ui-preset) to create your own.
 
 ## License
 
