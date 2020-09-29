@@ -6,6 +6,7 @@
 
 - [Installation](#installation)
 - [Features](#features)
+- [FortifyUI Presets](#presets)
 
 <a name="installation"></a>
 ## Installation
@@ -76,6 +77,11 @@ To enable the email verification feature, you'll need to visit the **FortifyUI**
 
 ### Password Confirmation
 To enable the password confirmation feature, you'll need to visit the **FortifyUI** service provider and uncomment the `Fortify::confirmPasswordView()` feature. This allows you to attach the `password.confirm` middleware to any of your routes, which is handled by the `password-confirm.blade.php` file.
+
+<a name="presets"></a>
+## FortifyUI Presets
+
+**FortifyUI** encourges you fork this repository and make your own presets, with your favorite frontend libraries and frameworks. To give you an idea of what that looks like, please take a look at [*FortifyUIkit*](https://github.com/zacksmash/fortify-ui).
 
 ## License
 
