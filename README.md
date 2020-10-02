@@ -5,6 +5,7 @@
 **FortifyUI** is an unopinionated authentication starter, powered by [*Laravel Fortify*](https://github.com/laravel/fortify). This package can be used to start your project, or you can use the [*FortifyUI Preset Template*](https://github.com/zacksmash/fortify-ui-preset) to create your own preset to install with **FortifyUI**. It is completely unstyled -- on purpose -- and only includes a minimal amount of markup to get your project running quickly.
 
 - [Installation](#installation)
+- [Configuration](#configuration)
 - [Features](#features)
 - [FortifyUI Presets](#presets)
 
@@ -26,6 +27,9 @@ php artisan fortify-ui:install
 This command will publish **FortifyUI's** views, add the `home` route to `web.php` and add the **FortifyUI** service provider to your `app/Providers` directory.
 
 That's it, you're all setup! For advanced setup and configuration options, keep reading!
+
+<a name="configuration"></a>
+## Configuration
 
 If you'd rather not include the service provider file, you can skip generating it by using the `--skip-provider` flag.
 
