@@ -63,6 +63,10 @@ Fortify::resetPasswordView(function ($request) {
 // Fortify::confirmPasswordView(function () {
 //     return view('auth.confirm-password');
 // });
+
+// Fortify::twoFactorChallengeView(function () {
+//     return view('auth.two-factor-challenge');
+// });
 ```
 
 To register all views at once, you can use this instead:
@@ -79,10 +83,32 @@ Now, you should have all of the registered routes and views required by *Laravel
 By default, **FortifyUI** is setup to handle the basic authentication functions (Login, Register, Password Reset) provided by *Laravel Fortify*.
 
 ### Email Verification
-To enable the email verification feature, you'll need to visit the **FortifyUI** service provider and uncomment the `Fortify::verifyEmailView()` feature. Next, you'll need to follow the instructions from [*Laravel Fortify's*](https://github.com/laravel/fortify/blob/1.x/README.md#email-verification) documentation to update your `User` model and the `fortify.php` config file. This allows you to attach the `verified` middleware to any of your routes, which is handled by the `verify.blade.php` file.
+To enable the email verification feature, you'll need to visit the **FortifyUI** service provider and uncomment `Fortify::verifyEmailView()`, to register the view. Next, you'll need to follow the instructions from [*Laravel Fortify's*](https://github.com/laravel/fortify/blob/1.x/README.md#email-verification) documentation to update your `User` model and the `fortify.php` config file. This allows you to attach the `verified` middleware to any of your routes, which is handled by the `verify.blade.php` file.
 
 ### Password Confirmation
-To enable the password confirmation feature, you'll need to visit the **FortifyUI** service provider and uncomment the `Fortify::confirmPasswordView()` feature. This allows you to attach the `password.confirm` middleware to any of your routes, which is handled by the `password-confirm.blade.php` file.
+To enable the password confirmation feature, you'll need to visit the **FortifyUI** service provider and uncomment `Fortify::confirmPasswordView()`, to register the view. This allows you to attach the `password.confirm` middleware to any of your routes, which is handled by the `password-confirm.blade.php` file.
+
+### Two-Factor Authentication
+To enable the two-factor authentication feature, you'll need to visit the **FortifyUI** service provider and uncomment `Fortify::twoFactorChallengeView()`, to register the view. Then, go to the `fortify.php` config file and make sure `Features::twoFactorAuthentication` is uncommented. Next, you'll want to update your `User` model to include the following:
+
+```php
+use Laravel\Fortify\TwoFactorAuthenticatable;
+
+class User extends Authenticatable
+{
+    use HasFactory, Notifiable, TwoFactorAuthenticatable;
+    ...
+```
+
+That's it! Now, you can log into your application and enable or disable two-factor authentication.
+
+### Update User Password/Profile
+To enable the ability to update user passwords and/or profile information, go to the `fortify.php` config file and make sure these features are uncommented:
+
+```php
+Features::updateProfileInformation(),
+Features::updatePasswords(),
+```
 
 <a name="presets"></a>
 ## FortifyUI Presets
