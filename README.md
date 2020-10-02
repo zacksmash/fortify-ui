@@ -25,6 +25,8 @@ php artisan fortify-ui:install
 
 This command will publish **FortifyUI's** views, add the `home` route to `web.php` and add the **FortifyUI** service provider to your `app/Providers` directory.
 
+That's it, you're all setup! For advanced setup and configuration options, keep reading!
+
 If you'd rather not include the service provider file, you can skip generating it by using the `--skip-provider` flag.
 
 ```bash
