@@ -1,8 +1,8 @@
-<p  align="center"><img  src="https://github.com/zacksmash/fortify-ui/blob/master/fortify-ui-image.png"  width="400"></p>
+<p  align="center"><img  src="https://github.com/zacksmash/fortify-ui/raw/master/fortify-ui-image.png"  width="400"></p>
 
 # Introduction
 
-**FortifyUI** is an unopinionated authentication starter, powered by [*Laravel Fortify*](https://github.com/laravel/fortify). This package can be used to start your project, or you can use the [*FortifyUI Preset Template*](https://github.com/zacksmash/fortify-ui-preset) to create your own preset to install with **FortifyUI**. It is completely unstyled -- on purpose -- and only includes a minimal amount of markup to get your project running quickly.
+**FortifyUI** is an unopinionated authentication starter, powered by [*Laravel Fortify*](https://github.com/laravel/fortify). It is completely unstyled -- on purpose -- and only includes a minimal amount of markup to get your project running quickly. This package can be used to start your project, or you can use the [*FortifyUI Preset Template*](https://github.com/zacksmash/fortify-ui-preset) which allows you to create your own preset that you can install with **FortifyUI**.
 
 - [Installation](#installation)
 - [Configuration](#configuration)
@@ -24,14 +24,14 @@ Next, you'll need to run the install command:
 php artisan fortify-ui:install
 ```
 
-This command will publish **FortifyUI's** views, add the `home` route to `web.php` and add the **FortifyUI** service provider to your `app/Providers` directory.
+This command will publish **FortifyUI's** views, add the `home` route to `web.php` and add the **FortifyUI** service provider to your `app/Providers` directory. This will also publish the service provider and config file for *Laravel Fortify*. Lastly, it will register both service providers in the `app.php` config file, under the providers array.
 
 That's it, you're all setup! For advanced setup and configuration options, keep reading!
 
 <a name="configuration"></a>
 ## Configuration
 
-If you'd rather not include the service provider file, you can skip generating it by using the `--skip-provider` flag.
+The **FortifyUI** service provider registers the views for all of the authentication features. If you'd rather **not** include the **FortifyUI** service provider, you can skip generating it by using the `--skip-provider` flag.
 
 ```bash
 php artisan fortify-ui:install --skip-provider
@@ -75,7 +75,7 @@ To register all views at once, you can use this instead:
 Fortify::viewPrefix('auth.');
 ```
 
-Now, you should have all of the registered routes and views required by *Laravel Fortify*, including basic layout and home views, as well as optional password confirmation and email verification views.
+Now, you should have all of the registered views required by *Laravel Fortify*, including basic layout and home views, as well as optional password confirmation, email verification and two-factor authentication views.
 
 <a name="features"></a>
 ## Features
@@ -83,7 +83,19 @@ Now, you should have all of the registered routes and views required by *Laravel
 By default, **FortifyUI** is setup to handle the basic authentication functions (Login, Register, Password Reset) provided by *Laravel Fortify*.
 
 ### Email Verification
-To enable the email verification feature, you'll need to visit the **FortifyUI** service provider and uncomment `Fortify::verifyEmailView()`, to register the view. Next, you'll need to follow the instructions from [*Laravel Fortify's*](https://github.com/laravel/fortify/blob/1.x/README.md#email-verification) documentation to update your `User` model and the `fortify.php` config file. This allows you to attach the `verified` middleware to any of your routes, which is handled by the `verify.blade.php` file.
+To enable the email verification feature, you'll need to visit the **FortifyUI** service provider and uncomment `Fortify::verifyEmailView()`, to register the view. Then, go to the `fortify.php` config file and make sure `Features::emailVerification()` is uncommented. Next, you'll want to update your `User` model to include the following:
+
+```php
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+class User extends Authenticatable implements MustVerifyEmail
+{
+    ...
+```
+
+This allows you to attach the `verified` middleware to any of your routes, which is handled by the `verify.blade.php` file.
+
+[More info about this can be found here.](https://github.com/laravel/fortify/blob/1.x/README.md#email-verification)
 
 ### Password Confirmation
 To enable the password confirmation feature, you'll need to visit the **FortifyUI** service provider and uncomment `Fortify::confirmPasswordView()`, to register the view. This allows you to attach the `password.confirm` middleware to any of your routes, which is handled by the `password-confirm.blade.php` file.
