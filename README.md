@@ -11,6 +11,10 @@
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Features](#features)
+-- [Email Verification](#features-email-verification)
+-- [Password Confirmation](#features-password-confirmation)
+-- [Two-Factor Authentication](#features-two-factor-auth)
+-- [User Password/Profile update](#features-password-profile)
 - [FortifyUI Presets](#presets)
 
 <a name="installation"></a>
@@ -86,6 +90,7 @@ Now, you should have all of the registered views required by *Laravel Fortify*, 
 
 By default, **FortifyUI** is setup to handle the basic authentication functions (Login, Register, Password Reset) provided by *Laravel Fortify*.
 
+<a name="features-email-verification"></a>
 ### Email Verification
 To enable the email verification feature, you'll need to visit the **FortifyUI** service provider and uncomment `Fortify::verifyEmailView()`, to register the view. Then, go to the `fortify.php` config file and make sure `Features::emailVerification()` is uncommented. Next, you'll want to update your `User` model to include the following:
 
@@ -101,9 +106,11 @@ This allows you to attach the `verified` middleware to any of your routes, which
 
 [More info about this can be found here.](https://github.com/laravel/fortify/blob/1.x/README.md#email-verification)
 
+<a name="features-password-confirmation"></a>
 ### Password Confirmation
 To enable the password confirmation feature, you'll need to visit the **FortifyUI** service provider and uncomment `Fortify::confirmPasswordView()`, to register the view. This allows you to attach the `password.confirm` middleware to any of your routes, which is handled by the `password-confirm.blade.php` file.
 
+<a name="features-two-factor-auth"></a>
 ### Two-Factor Authentication
 To enable the two-factor authentication feature, you'll need to visit the **FortifyUI** service provider and uncomment `Fortify::twoFactorChallengeView()`, to register the view. Then, go to the `fortify.php` config file and make sure `Features::twoFactorAuthentication` is uncommented. Next, you'll want to update your `User` model to include the following:
 
@@ -118,6 +125,7 @@ class User extends Authenticatable
 
 That's it! Now, you can log into your application and enable or disable two-factor authentication.
 
+<a name="features-password-profile"></a>
 ### Update User Password/Profile
 To enable the ability to update user passwords and/or profile information, go to the `fortify.php` config file and make sure these features are uncommented:
 
