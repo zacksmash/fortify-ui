@@ -6,7 +6,7 @@
 
 
 ### In a nutshell...
-**FortifyUI** exists to automate the base installation and configuration of *Laravel Fortify*, as well as provide the scaffoling for you to build your own UI around it. Hence, Fortify + UI. 
+**FortifyUI** exists to automate the base installation and configuration of *Laravel Fortify*, as well as to provide the features that *Laravel Fortify* recommends implementing yourself and the scaffoling for you to build your own UI around it. Hence, Fortify + UI. 
 
 - [Installation](#installation)
 - [Configuration](#configuration)
