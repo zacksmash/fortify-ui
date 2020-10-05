@@ -8,6 +8,12 @@
 ### In a nutshell...
 **FortifyUI** exists to automate the base installation and configuration of *Laravel Fortify*, as well as to provide the features that *Laravel Fortify* recommends implementing yourself and the scaffoling for you to build your own UI around it. Hence, Fortify + UI. 
 
+From the *Laravel Fortify* docs:
+
+> If you are not using Laravel Jetstream, you should implement user profile updates, password updates, and two-factor authentication yourself.
+
+See how to [activate these features](#features) using **FortifyUI** 
+
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Features](#features)
