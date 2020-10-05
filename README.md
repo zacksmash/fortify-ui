@@ -13,10 +13,10 @@
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Features](#features)
- - [Email Verification](#features-email-verification)
- - [Password Confirmation](#features-password-confirmation)
- - [Two-Factor Authentication](#features-two-factor-auth)
- - [User Password/Profile update](#features-password-profile)
+  - [Email Verification](#features-email-verification)
+  - [Password Confirmation](#features-password-confirmation)
+  - [Two-Factor Authentication](#features-two-factor-auth)
+  - [User Password/Profile update](#features-password-profile)
 - [FortifyUI Presets](#presets)
 
 <a name="installation"></a>
