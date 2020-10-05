@@ -4,14 +4,20 @@
 
 **FortifyUI** is an unopinionated authentication starter, powered by [*Laravel Fortify*](https://github.com/laravel/fortify). It is completely unstyled -- on purpose -- and only includes a minimal amount of markup to get your project running quickly. This package can be used to start your project, or you can use the [*FortifyUI Preset Template*](https://github.com/zacksmash/fortify-ui-preset) which allows you to create your own preset that you can install with **FortifyUI**.
 
-
-### In a nutshell...
-**FortifyUI** exists to automate the base installation and configuration of *Laravel Fortify*, as well as provide the scaffoling for you to build your own UI around it. Hence, Fortify + UI. 
-
+- [Fortify Differences](#differences)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Features](#features)
 - [FortifyUI Presets](#presets)
+
+<a name="differences"></a>
+## Fortify Differences
+
+**FortifyUI** can be seen as a successor to the old `make:auth` and then `laravel/ui` - only adding what's required and missing in *Laravel Fortify*:
+
+> If you are not using Laravel Jetstream, you should implement user profile updates, password updates, and two-factor authentication yourself.
+
+See how to activate these in: [Features](#features).
 
 <a name="installation"></a>
 ## Installation
