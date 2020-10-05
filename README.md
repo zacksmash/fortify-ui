@@ -4,6 +4,10 @@
 
 **FortifyUI** is an unopinionated authentication starter, powered by [*Laravel Fortify*](https://github.com/laravel/fortify). It is completely unstyled -- on purpose -- and only includes a minimal amount of markup to get your project running quickly. This package can be used to start your project, or you can use the [*FortifyUI Preset Template*](https://github.com/zacksmash/fortify-ui-preset) which allows you to create your own preset that you can install with **FortifyUI**.
 
+
+### In a nutshell...
+**FortifyUI** exists to automate the base installation and configuration of *Laravel Fortify*, as well as provide the scaffoling for you to build your own UI around it. Hence, Fortify + UI. 
+
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Features](#features)
