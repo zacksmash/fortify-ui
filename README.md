@@ -16,7 +16,7 @@
   - [Email Verification](#features-email-verification)
   - [Password Confirmation](#features-password-confirmation)
   - [Two-Factor Authentication](#features-two-factor-auth)
-  - [User Password/Profile update](#features-password-profile)
+  - [Update User Password/Profile](#features-password-profile)
 - [FortifyUI Presets](#presets)
 
 <a name="installation"></a>
