@@ -8,13 +8,15 @@
 ### In a nutshell...
 **FortifyUI** exists to automate the base installation and configuration of *Laravel Fortify*, as well as to provide the features that *Laravel Fortify* recommends implementing yourself and the scaffoling for you to build your own UI around it. Hence, Fortify + UI. 
 
+---
+
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Features](#features)
--- [Email Verification](#features-email-verification)
--- [Password Confirmation](#features-password-confirmation)
--- [Two-Factor Authentication](#features-two-factor-auth)
--- [User Password/Profile update](#features-password-profile)
+ - [Email Verification](#features-email-verification)
+ - [Password Confirmation](#features-password-confirmation)
+ - [Two-Factor Authentication](#features-two-factor-auth)
+ - [User Password/Profile update](#features-password-profile)
 - [FortifyUI Presets](#presets)
 
 <a name="installation"></a>
