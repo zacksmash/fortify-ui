@@ -31,10 +31,10 @@ class FortifyUICommand extends Command
         $this->callSilent('vendor:publish', ['--provider' => 'Laravel\Fortify\FortifyServiceProvider']);
 
         if (! $this->option('skip-provider')) {
-            $this->callSilent('vendor:publish', ['--tag' => 'provider', '--force' => true]);
+            $this->callSilent('vendor:publish', ['--tag' => 'fortify-ui-provider', '--force' => true]);
         }
 
-        $this->callSilent('vendor:publish', ['--tag' => 'views', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'fortify-ui-views', '--force' => true]);
     }
 
     public function updateServiceProviders()
