@@ -25,7 +25,7 @@
         @include('profile.update-password-form')
     @endif
 
-    @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
+    @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::twoFactorAuthentication()))
         @include('profile.two-factor-authentication-form')
     @endif
 @endsection

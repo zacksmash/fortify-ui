@@ -12,11 +12,11 @@ class FortifyUIServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../resources/views' => base_path('resources/views'),
-            ], 'views');
+            ], 'fortify-ui-views');
 
             $this->publishes([
                 __DIR__ . '/../app/Providers' => base_path('app/Providers'),
-            ], 'provider');
+            ], 'fortify-ui-provider');
 
             $this->commands([
                 FortifyUICommand::class,
