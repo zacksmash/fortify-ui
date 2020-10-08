@@ -16,8 +16,6 @@
         }
     ],
     "require": {
-        "php": "^7.4",
-        "illuminate/contracts": "^8.0",
         "laravel/fortify": "^1.5"
     },
     "require-dev": {
