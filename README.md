@@ -139,7 +139,17 @@ Features::updatePasswords(),
 <a name="presets"></a>
 ## FortifyUI Presets
 
-**FortifyUI** encourges make your own presets, with your favorite frontend libraries and frameworks. To give you an idea of what that looks like, please take a look at [*FortifyUIkit*](https://github.com/zacksmash/fortify-uikit) and use the [*FortifyUI Preset Template*](https://github.com/zacksmash/fortify-ui-preset) to create your own.
+**FortifyUI** encourges make your own presets, with your favorite frontend libraries and frameworks. To get started, visit the [*FortifyUI Preset Template*](https://github.com/zacksmash/fortify-ui-preset) repository, and click the "Use Template" button.
+
+### Community Presets
+
+Here's a list of presets created by the community:
+
+- [FortifyUIkit](https://github.com/zacksmash/fortify-uikit): Made with the UIkit framework
+- [FortifyUITabler](https://github.com/Proxeuse/fortify-tabler): Made with the Admin Panel framework
+- [FortifyBulma](https://github.com/mikeburrelljr/fortify-bulma): Made with the Bulma CSS framework
+
+If you've created a preset, please open an issue or PR to add it to the list!
 
 ## License
 
