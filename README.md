@@ -146,7 +146,7 @@ Features::updatePasswords(),
 Here's a list of presets created by the community:
 
 - [FortifyUIkit](https://github.com/zacksmash/fortify-uikit): Made with the UIkit framework
-- [FortifyUITabler](https://github.com/Proxeuse/fortify-tabler): Made with the Admin Panel framework
+- [FortifyUITabler](https://github.com/Proxeuse/fortify-tabler): Made with the Tabler dashboard tempalte.
 - [FortifyBulma](https://github.com/mikeburrelljr/fortify-bulma): Made with the Bulma CSS framework
 
 If you've created a preset, please open an issue or PR to add it to the list!
