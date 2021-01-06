@@ -57,7 +57,7 @@ class FortifyUICommand extends Command
             ) {
                 file_put_contents(config_path('app.php'), str_replace(
                     "App\Providers\RouteServiceProvider::class,",
-                    "App\Providers\RouteServiceProvider::class,".PHP_EOL."        App\Providers\FortifyServiceProvider::class,".PHP_EOL."        App\\Providers\\FortifyUIServiceProvider::class",
+                    "App\Providers\RouteServiceProvider::class,".PHP_EOL."        App\Providers\FortifyServiceProvider::class,".PHP_EOL."        App\\Providers\\FortifyUIServiceProvider::class,",
                     $appConfig
                 ));
             }
