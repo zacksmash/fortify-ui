@@ -3,6 +3,7 @@
 namespace Zacksmash\FortifyUI\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class FortifyUICommand extends Command
@@ -43,11 +44,13 @@ class FortifyUICommand extends Command
 
         if ($this->option('skip-provider')) {
             if (! Str::contains($appConfig, 'App\\Providers\\FortifyServiceProvider::class')) {
-                file_put_contents(config_path('app.php'), str_replace(
-                    "App\Providers\RouteServiceProvider::class,",
-                    "App\Providers\RouteServiceProvider::class,".PHP_EOL."        App\Providers\FortifyServiceProvider::class,",
-                    $appConfig
-                ));
+                File::put(
+                    config_path('app.php'), str_replace(
+                        "App\Providers\RouteServiceProvider::class,",
+                        "App\Providers\RouteServiceProvider::class,".PHP_EOL."        App\Providers\FortifyServiceProvider::class,",
+                        $appConfig
+                    )
+                );
             }
         } else {
             if (
@@ -55,7 +58,7 @@ class FortifyUICommand extends Command
                 &&
                 ! Str::contains($appConfig, 'App\\Providers\\FortifyUIServiceProvider::class')
             ) {
-                file_put_contents(config_path('app.php'), str_replace(
+                File::put(config_path('app.php'), str_replace(
                     "App\Providers\RouteServiceProvider::class,",
                     "App\Providers\RouteServiceProvider::class,".PHP_EOL."        App\Providers\FortifyServiceProvider::class,".PHP_EOL."        App\\Providers\\FortifyUIServiceProvider::class,",
                     $appConfig
@@ -66,9 +69,9 @@ class FortifyUICommand extends Command
 
     protected function updateRoutes()
     {
-        file_put_contents(
+        File::put(
             base_path('routes/web.php'),
-            "\nRoute::view('home', 'home')\n\t->name('home')\n\t->middleware(['auth', 'verified']);\n",
+            "\nRoute::view('dashboard', 'dashboard')\n\t->name('dashboard')\n\t->middleware(['auth', 'verified']);\n",
             FILE_APPEND
         );
     }
