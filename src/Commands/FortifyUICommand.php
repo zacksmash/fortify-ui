@@ -76,6 +76,15 @@ class FortifyUICommand extends Command
         );
 
         File::put(
+            resource_path('views/welcome.blade.php'),
+            str_replace(
+                "{{ url('/home') }}",
+                "{{ url('/dashboard') }}",
+                File::get(resource_path('views/welcome.blade.php'))
+            )
+        );
+
+        File::put(
             app_path('providers/RouteServiceProvider.php'),
             str_replace(
                 "public const HOME = '/home';",
