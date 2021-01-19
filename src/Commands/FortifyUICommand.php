@@ -45,7 +45,8 @@ class FortifyUICommand extends Command
         if ($this->option('skip-provider')) {
             if (! Str::contains($appConfig, 'App\\Providers\\FortifyServiceProvider::class')) {
                 File::put(
-                    config_path('app.php'), str_replace(
+                    config_path('app.php'),
+                    str_replace(
                         "App\Providers\RouteServiceProvider::class,",
                         "App\Providers\RouteServiceProvider::class,".PHP_EOL."        App\Providers\FortifyServiceProvider::class,",
                         $appConfig
