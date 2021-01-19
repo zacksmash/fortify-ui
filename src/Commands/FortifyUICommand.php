@@ -69,10 +69,18 @@ class FortifyUICommand extends Command
 
     protected function updateRoutes()
     {
-        File::put(
+        File::append(
             base_path('routes/web.php'),
-            "\nRoute::view('dashboard', 'dashboard')\n\t->name('dashboard')\n\t->middleware(['auth', 'verified']);\n",
-            FILE_APPEND
+            "\nRoute::view('dashboard', 'dashboard')\n\t->name('dashboard')\n\t->middleware(['auth', 'verified']);\n"
+        );
+
+        File::put(
+            app_path('providers/RouteServiceProvider.php'),
+            str_replace(
+                "public const HOME = '/home';",
+                "public const HOME = '/dashboard';",
+                File::get(app_path('providers/RouteServiceProvider.php'))
+            )
         );
     }
 }
