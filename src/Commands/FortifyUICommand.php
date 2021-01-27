@@ -89,7 +89,7 @@ class FortifyUICommand extends Command
             str_replace(
                 "public const HOME = '/home';",
                 "public const HOME = '/dashboard';",
-                File::get(app_path('providers/RouteServiceProvider.php'))
+                File::get(app_path('Providers/RouteServiceProvider.php'))
             )
         );
     }
