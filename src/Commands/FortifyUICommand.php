@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class FortifyUICommand extends Command
 {
-    public $signature = 'fortify-ui:install {--skip-provider}';
+    public $signature = 'fortify:ui {--skip-provider}';
 
     public $description = 'Setup FortifyUI routes, service providers and views';
 

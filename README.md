@@ -31,7 +31,7 @@ composer require zacksmash/fortify-ui
 Next, you'll need to run the install command:
 
 ```bash
-php artisan fortify-ui:install
+php artisan fortify:ui
 ```
 
 This command will publish **FortifyUI's** views, add the `home` route to `web.php` and add the **FortifyUI** service provider to your `app/Providers` directory. This will also publish the service provider and config file for *Laravel Fortify*. Lastly, it will register both service providers in the `app.php` config file, under the providers array.
@@ -44,7 +44,7 @@ That's it, you're all setup! For advanced setup and configuration options, keep 
 The **FortifyUI** service provider registers the views for all of the authentication features. If you'd rather **not** include the **FortifyUI** service provider, you can skip generating it by using the `--skip-provider` flag.
 
 ```bash
-php artisan fortify-ui:install --skip-provider
+php artisan fortify:ui --skip-provider
 ```
 
 Then, you can add this to your `AppServiceProvider` or `FortifyServiceProvider`, in the `boot()` method.
