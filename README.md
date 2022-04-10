@@ -155,6 +155,7 @@ Here's a list of presets created by the community:
 - [FortifyUITailwind](https://github.com/pradeep3/fortify-ui-tailwindcss): Made with the Tailwind CSS framework
 - [FortifySoftUi](https://github.com/akukoder/fortify-soft-ui): Made with the  Soft UI Dashboard and Soft UI
 - [Fortify Bootstrap](https://github.com/bezner/fortify-ui-bootstrap): Made with the Bootstrap framework
+- [FortifyTablerAdmin](https://github.com/akukoder/fortify-tabler-admin): Made with the Tabler dashboard template, with multiple layout provided
 
 
 If you've created a preset, please open an issue or PR to add it to the list!
