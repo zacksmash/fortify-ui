@@ -10,7 +10,7 @@
     </div>
 @endif
 
-<form method="POST" action="{{ url('/two-factor-challenge') }}">
+<form method="POST" action="{{ route('two-factor.login') }}">
     @csrf
 
     {{--
