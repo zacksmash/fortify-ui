@@ -1,6 +1,6 @@
 @if(! auth()->user()->two_factor_secret)
     {{-- Enable 2FA --}}
-    <form method="POST" action="{{ url('user/two-factor-authentication') }}">
+    <form method="POST" action="{{ route('two-factor.enable') }}">
         @csrf
 
         <button type="submit">
@@ -9,7 +9,7 @@
     </form>
 @else
     {{-- Disable 2FA --}}
-    <form method="POST" action="{{ url('user/two-factor-authentication') }}">
+    <form method="POST" action="{{ route('two-factor.disable') }}">
         @csrf
         @method('DELETE')
 
@@ -41,7 +41,7 @@
     </div>
 
     {{-- Regenerate 2FA Recovery Codes --}}
-    <form method="POST" action="{{ url('user/two-factor-recovery-codes') }}">
+    <form method="POST" action="{{ route('two-factor.recovery-codes') }}">
         @csrf
 
         <button type="submit">
