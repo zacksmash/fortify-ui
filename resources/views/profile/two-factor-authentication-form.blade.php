@@ -9,7 +9,7 @@
     </form>
 @else
     {{-- Disable 2FA --}}
-    <form method="POST" action="{{ route('two-factor.enable') }}">
+    <form method="POST" action="{{ route('two-factor.disable') }}">
         @csrf
         @method('DELETE')
 
