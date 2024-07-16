@@ -5,6 +5,7 @@ namespace Zacksmash\FortifyUI\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\Support\ServiceProvider;
 
 class FortifyUICommand extends Command
 {
@@ -14,17 +15,22 @@ class FortifyUICommand extends Command
 
     public function handle()
     {
-        $this->publishAssets();
-        $this->updateServiceProviders();
-        $this->updateRoutes();
+        try {
+            $this->publishAssets();
+            $this->updateServiceProviders();
+            $this->updateRoutes();
 
-        $this->comment('FortifyUI is now installed.');
+            $this->components->info('Fortify scaffolding installed successfully.');
 
-        if ($this->option('skip-provider')) {
-            $this->info('Please, remember to include the Fortify view registrations!');
+            if ($this->option('skip-provider')) {
+                $this->components->info('Remember to register your Fortify views and migrate your database.');
+            } else {
+                $this->components->info('Remember to migrate your database.');
+            }
+        } catch (\Throwable $th) {
+            $this->components->error('An error occurred while installing Fortify scaffolding.');
+            $this->components->error($th->getMessage());
         }
-
-        $this->info('Please, run php artisan migrate!');
     }
 
     protected function publishAssets()
@@ -40,56 +46,50 @@ class FortifyUICommand extends Command
 
     public function updateServiceProviders()
     {
-        $appConfig = file_get_contents(config_path('app.php'));
+        if (! method_exists(ServiceProvider::class, 'addProviderToBootstrapFile')) {
+            return;
+        }
 
-        if ($this->option('skip-provider')) {
-            if (! Str::contains($appConfig, 'App\\Providers\\FortifyServiceProvider::class')) {
-                File::put(
-                    config_path('app.php'),
-                    str_replace(
-                        "App\Providers\RouteServiceProvider::class,",
-                        "App\Providers\RouteServiceProvider::class,".PHP_EOL."        App\Providers\FortifyServiceProvider::class,",
-                        $appConfig
-                    )
-                );
-            }
-        } else {
-            if (
-                ! Str::contains($appConfig, 'App\\Providers\\FortifyServiceProvider::class')
-                &&
-                ! Str::contains($appConfig, 'App\\Providers\\FortifyUIServiceProvider::class')
-            ) {
-                File::put(config_path('app.php'), str_replace(
-                    "App\Providers\RouteServiceProvider::class,",
-                    "App\Providers\RouteServiceProvider::class,".PHP_EOL."        App\Providers\FortifyServiceProvider::class,".PHP_EOL."        App\\Providers\\FortifyUIServiceProvider::class,",
-                    $appConfig
-                ));
-            }
+        ServiceProvider::addProviderToBootstrapFile(
+            \App\Providers\FortifyServiceProvider::class
+        );
+
+        if (! $this->option('skip-provider')) {
+            ServiceProvider::addProviderToBootstrapFile(
+                \App\Providers\FortifyUIServiceProvider::class
+            );
         }
     }
 
     protected function updateRoutes()
     {
+        // Add the Dashboard route to the web.phph routes file
         File::append(
             base_path('routes/web.php'),
             "\nRoute::view('dashboard', 'dashboard')\n\t->name('dashboard')\n\t->middleware(['auth', 'verified']);\n"
         );
 
+        $welcomeView = resource_path('views/welcome.blade.php');
+
+        // Update the welcome view to redirect to the dashboard
         File::put(
-            resource_path('views/welcome.blade.php'),
-            str_replace(
+            $welcomeView,
+            Str::replace(
                 "{{ url('/home') }}",
                 "{{ url('/dashboard') }}",
-                File::get(resource_path('views/welcome.blade.php'))
+                File::get($welcomeView)
             )
         );
 
+        $fortifyConfig = config_path('fortify.php');
+
+        // Update the Fortify config to redirect to the dashboard
         File::put(
-            app_path('Providers/RouteServiceProvider.php'),
-            str_replace(
-                "public const HOME = '/home';",
-                "public const HOME = '/dashboard';",
-                File::get(app_path('Providers/RouteServiceProvider.php'))
+            $fortifyConfig,
+            Str::replace(
+                "'home' => '/home',",
+                "'home' => '/dashboard',",
+                File::get($fortifyConfig)
             )
         );
     }

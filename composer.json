@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "laravel/fortify": "^1.5"
+        "laravel/fortify": "^1.21"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
