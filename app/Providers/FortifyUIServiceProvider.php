@@ -24,6 +24,9 @@ class FortifyUIServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // To register all views at once, delete all contents of boot() and replace with the following code
+        // Fortify::viewPrefix('auth.');
+
         Fortify::loginView(function () {
             return view('auth.login');
         });
